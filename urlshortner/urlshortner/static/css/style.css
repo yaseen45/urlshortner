@@ -1,0 +1,48 @@
+body
+{
+	background:#665544;
+	margin:8px 0 16px;
+	text-align:center;
+}
+
+#form_container
+{
+	background:#445566;
+
+	margin:0 auto;
+	text-align:left;
+	width:640px;
+}
+
+#top
+{
+	display:block;
+	height:10px;
+	margin:10px auto 0;
+	width:650px;
+}
+
+
+.forum
+{
+	margin:20px 20px 0;
+	padding:0 0 20px;
+}
+h1{
+text-align:center;
+color:white
+}
+.size{
+max-width:400px;
+max-height:50px;
+min-width:400px;
+min-height:50px;
+background-color:#eff;
+
+
+
+}
+
+label{
+color:black;
+}
