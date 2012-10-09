@@ -7,7 +7,7 @@ urlpatterns = patterns('',
      url(r'^admin/', include(admin.site.urls)),
      url(r'^assign/', 'shortner.views.search_assign',name='search_assign'),
      url(r'^$', 'shortner.views.index',name='index'),
-     url(r'^(.*)/$', 'shortner.views.goto',name='goto'),
+     url(r'^(P<shortt>\w+)/$', 'shortner.views.goto',name='goto'),
 )
 if settings.DEBUG:
     urlpatterns += patterns('',
