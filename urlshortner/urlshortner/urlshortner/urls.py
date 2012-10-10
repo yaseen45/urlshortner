@@ -9,6 +9,7 @@ urlpatterns = patterns('',
      url(r'^$', 'shortner.views.index',name='index'),
      url(r'^(?P<shortt>\w+)/$', 'shortner.views.goto',name='goto'),
 )
+
 if not settings.DEBUG:
     urlpatterns += patterns('',
         url(r'^static_media/(?P<path>.*)$', 'django.views.static.serve', {
