@@ -19,15 +19,16 @@
     </div>        <!--end of navbar -->
     <div class="container">
          <div class="row show-grid" >
-              <div class="offset4 "><img src="{{ MEDIA_URL }}images/sac1.png"></img></div><p>
+              <div class="offset4 "><img src="{{ MEDIA_URL }}images/sac1.png"></img>
+              </div>
               <div class="row show-grid" >
                  <h5 class="text-success offset2">long url</h5>
-                   <form class="form-inline offset2" method="post" name="fom4u" onsubmit="return check()"action="/assign/">
-                        {% csrf_token %}
-                        <input type="text" class=" input-xxlarge" name="lurl"id="lurl" placeholder="enter your url"  >
-                        <button type="submit" class="btn btn-info btn-mini  ">shorten</button>
-               </div>
-                  </form>
+                 <form class="form-inline offset2" method="POST" name="fom4u" onsubmit="return check()" action="/assign/">
+                  {% csrf_token %}
+                  <input type="text" class=" input-xxlarge" name="lurl"id="lurl" placeholder="enter your url" >
+                  <input type="submit" class="btn btn-info btn-mini" value="shorten">
+                </form>
+                </div>
               <div class="row show-grid" >
                 <p  id ="err" class="text-error offset5">
                 {%block content%}{%endblock%}</p>
