@@ -7,52 +7,35 @@
        {%block head%}{%endblock%}  
  </head>
  <body>
-<div class="navbar navbar-inverse">
-    <div class="navbar-inner">
+    <div class="navbar navbar-inverse">
+       <div class="navbar-inner">
         
             <li class="brand" >SACY</li>
-           
-                <ul class="nav ">
-                     
-
-          <li  class="divider-vertical"><a href="/">Home</a></li>
-            <li  class="divider-vertical"><a href="http://www.trialx.com">About-us</a></li>
-
-
-
-
-
-
-                </ul>
-          
-        
-    </div>
-
+            <ul class="nav ">
+                <li  class="divider-vertical"><a href="/">Home</a></li>
+                <li  class="divider-vertical"><a href="http://www.trialx.com">About-us</a></li>
+            </ul>
+       </div>     
+    </div>        <!--end of navbar -->
     <div class="container">
-     
-       <div class="row show-grid" >
-           <div class="offset4 "><img src="{{ MEDIA_URL }}images/sac1.png"></img></div><p>
-            <div class="row show-grid" >
-           <h5 class="text-success offset2">long url</h5>
-                       <form class="form-inline offset2" method="post" name="fom4u" onsubmit="return check()"action="/assign/">
-             {% csrf_token %}
+         <div class="row show-grid" >
+              <div class="offset4 "><img src="{{ MEDIA_URL }}images/sac1.png"></img></div><p>
+              <div class="row show-grid" >
+                 <h5 class="text-success offset2">long url</h5>
+                   <form class="form-inline offset2" method="post" name="fom4u" onsubmit="return check()"action="/assign/">
+                        {% csrf_token %}
                         <input type="text" class=" input-xxlarge" name="lurl"id="lurl" placeholder="enter your url"  >
-                <button type="submit" class="btn btn-info btn-mini  ">shorten</button>
+                        <button type="submit" class="btn btn-info btn-mini  ">shorten</button>
                </div>
-                </form>
-           <div class="row show-grid" >
+                  </form>
+              <div class="row show-grid" >
                 <p  id ="err" class="text-error offset5">
-            {%block content%}{%endblock%}</p>
+                {%block content%}{%endblock%}</p>
               </div> 
-               
-          
-           </div>
-       </div>
-                
-    </div>
-    
+         </div>
+     </div> <!-- end of container-->
+  
  </body>
-
- </html>
+</html>
 
 

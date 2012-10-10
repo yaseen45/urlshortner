@@ -5,7 +5,7 @@ document.getElementById("err").innerHTML="\"nothing entered\""
     return false
     }
 
-var x=/^(http|https):\/\//
+var x=/^(http|https):\/\/
 if(x.test(luu)){
       return true
                   }

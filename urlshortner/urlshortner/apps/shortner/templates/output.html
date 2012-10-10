@@ -1,32 +1,26 @@
 {% extends 'form.html' %}
 {% block head %}
 <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.min.js"></script> 
-
 <script >
 $(document).ready(function() {
   $("#foo").mouseover(function() {
          $(this).select();
-         
-        $("#mall").css("visibility","visible");
-       
-        
-});
+         $("#mall").css("visibility","visible");
+   });
+  
   $("#foo").mouseleave(function(){
-     $("#mall").css("visibility","hidden");
+         $("#mall").css("visibility","hidden");
   });
-        
-;
+ 
 });
-
 </script>
-
- {% endblock %}
-
-
+{% endblock %}
 {% block content %}
-<div class="row offset2 show-grid">
-   <small class="text-error">{{shortu.longurl|truncatechars:40}}</small></div>
-   <div class="row offset2 show-grid ">
-<input type="text" id="foo" value="127.0.0.1:8000/{{shortu.shorturl}}" readonly="readonly" class="text-success" >
-<small id="mall" class="text-info"style=" visibility:hidden">press ctrl-c to copy</small> </div>
- {% endblock %}
+ <div class="row offset2 show-grid">
+    <small class="text-error">{{shortu.longurl|truncatechars:40}}</small>
+ </div>
+ <div class="row offset2 show-grid ">
+       <input type="text" id="foo" value="127.0.0.1:8000/{{shortu.shorturl}}" readonly="readonly" class="text-success" >
+       <small id="mall" class="text-info"style=" visibility:hidden">press ctrl-c to copy</small> 
+ </div>
+{% endblock %}
