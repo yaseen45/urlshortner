@@ -43,7 +43,8 @@ class FirstTest(unittest.TestCase):
     def test_redirects(self):
         """"this test checks valid short url is redirected to
         the desired url and invalid short url is redirected 
-        to 404"""
+        to 404
+        """
         newobj = Ushort()
         newobj.longurl = "http://www.yahoo.com/cricketlive"
         newobj.shorturl = "cf1"
