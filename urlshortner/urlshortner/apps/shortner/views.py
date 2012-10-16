@@ -7,18 +7,24 @@ from models import Ushort
 RNG = int('ffff',16)   #range of short url to be used                                
 
 def index(request,templt='form.html'):
-    """
-    this is the function which is called on the base url
-    """
+    """render the home page of urlshortner"""
     return render_to_response(templt,context_instance=RequestContext(request))
 
 def search_assign(request,templt='output.html'):
-    """
-    this is the main function  which assigns short urls .
-    it is called when the valid long url is post by the user ,
-    this function checks if the long url is already shortned, 
-    if not it just creates a short url, store it and returns
-    it to the user
+    """main function of urlshortner which assigns short urls.
+
+       The user posts the long url if that url is already shortned
+       then the short key is retrieved from the database which is
+       returned to the user otherwise a new short url is created,
+       returned and stored in the database. 
+
+    Args:
+         post copy of long url.
+    Redirects:
+         output.html:if the request method is POST.
+         shortt.html: if requet method is other than POST.         
+
+
     """ 
     if request.method=='POST':
         data = request.POST.copy()
@@ -40,8 +46,13 @@ def search_assign(request,templt='output.html'):
     return render_to_response('shortt.html',{},context_instance=RequestContext(request))
 
 def goto(request, shortt):
-    """this function redirects the  valid short urls to desired urls
-     and wrong ones to 404 
+    """redirects valid short urls to corresponding long urls.
+
+    Args:
+        shortt:the key enterd by the user.
+    Redirects:
+        yas: longurl of the valid key,
+        404: for invalid key      
     """
     isthere = get_object_or_404(Ushort,shorturl=shortt)
     yas = isthere.longurl
