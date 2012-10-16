@@ -9,7 +9,7 @@ function check(){
     var z=/^http:\/\/178\.79\.157\.230/
         
     if(x.test(luu)){
-        if (luu.length<=20||z.test(luu)){
+        if (luu.length<=21||z.test(luu)){
           document.getElementById("err").innerHTML="\"already shortened\""
           return false
          }   
