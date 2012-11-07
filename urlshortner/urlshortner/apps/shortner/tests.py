@@ -65,6 +65,7 @@ class FirstTest(unittest.TestCase):
    
 
     def test_yasss(self):
+        """test cheks the short url is generated and redirected"""
         driver = webdriver.Firefox()
         driver.implicitly_wait(3000)
         driver.get("http://localhost:8000/")
@@ -74,7 +75,7 @@ class FirstTest(unittest.TestCase):
         #now get the shoturl and find if it is redirected to the desired longurl
         x=driver.find_element_by_id("foo").get_attribute("value")
         driver.get(x)
-        self.assertEqual(driver.current_url,"http://www.facebook.com/ysalfy")
+        self.assertEqual(str(driver.current_url),"http://www.facebook.com/ysalfy")
     if __name__ == '__main__':
         test_yasss(self)
                 
