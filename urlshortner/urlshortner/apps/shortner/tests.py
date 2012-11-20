@@ -1,9 +1,7 @@
 from django.utils import unittest
 from django.test.client import Client
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
+from django.test import LiveServerTestCase
+from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest, time, re
 from shortner.views import index,search_assign,goto
 from shortner.models import Ushort
@@ -61,27 +59,29 @@ class FirstTest(unittest.TestCase):
         print response.status_code
         self.assertEqual(response.status_code, 404) 
              
-    
-   
-
-    def test_yasss(self):
-        """test cheks the short url is generated and redirected"""
-        driver = webdriver.Firefox()
-        driver.implicitly_wait(3000)
-        driver.get("http://localhost:8000/")
-        driver.find_element_by_name("lurl").clear()
-        driver.find_element_by_name("lurl").send_keys("http://www.facebook.com/ysalfy")
-        driver.find_element_by_id("short").click()
-        #now get the shoturl and find if it is redirected to the desired longurl
-        x=driver.find_element_by_id("foo").get_attribute("value")
-        driver.get(x)
-        self.assertEqual(str(driver.current_url),"http://www.facebook.com/ysalfy")
-    if __name__ == '__main__':
-        test_yasss(self)
-                
         
-          
  
+class MySeleniumTests(LiveServerTestCase):
+    fixtures = ['user-data.json']
+
+    @classmethod
+    def setUpClass(cls):
+        cls.selenium = WebDriver()
+        super(MySeleniumTests, cls).setUpClass()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(MySeleniumTests, cls).tearDownClass()
+
+    def test_login(self):
+        self.selenium.get('%s%s' % (self.live_server_url, ''))
+        self.selenium.find_element_by_id("lurl").send_keys('http://www.facebook.com/ysalfy')
+        self.selenium.find_element_by_xpath("//input[@value='shorten']").click()
+        x=self.selenium.find_element_by_id("foo").get_attribute("value")
+        self.selenium.get(x)
+        self.assertEqual(str(self.selenium.current_url),"https://www.facebook.com/ysalfy")
+    
 
 
             
